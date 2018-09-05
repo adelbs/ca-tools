@@ -1,5 +1,5 @@
 # ca-tools
-![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) [![GitHub](https://img.shields.io/badge/npm-gray.svg?logo=npm)](https://www.npmjs.com/package/ca-tools) [![GitHub](https://img.shields.io/badge/npm-green.svg?logo=github)](https://github.com/adelbs/ca-tools)
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) [![GitHub](https://img.shields.io/badge/npm-gray.svg?logo=npm)](https://www.npmjs.com/package/ca-tools) [![GitHub](https://img.shields.io/badge/GitHub-green.svg?logo=github)](https://github.com/adelbs/ca-tools)
 
 Lib to integrate your Javascript code with CA Technologies tools
 
