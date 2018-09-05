@@ -3,12 +3,12 @@
 
 Lib to integrate your Javascript code with CA Technologies tools
 
-####Install
+#### Install
 
 `$ npm install ca-tools`
 
 
-###Features
+### Features
 
 - Generate Rest Virtual Services (smarter alternative to traditional mocks)
 - Generate Test Data (Data generated into databases, plain files or inside the Virtual Services)
@@ -16,9 +16,9 @@ Lib to integrate your Javascript code with CA Technologies tools
 - PS.: The TDM lib is under construction
 
 
-###Usage
+### Usage
 
-####Config File (ca-tools-config.json)
+#### Config File (ca-tools-config.json)
 
 ```json
 {
@@ -35,7 +35,7 @@ Lib to integrate your Javascript code with CA Technologies tools
 }
 ```
 
-####Javascript code
+#### Javascript code
 
 ```javascript
     //The './ca-tools' is the path to the config file
