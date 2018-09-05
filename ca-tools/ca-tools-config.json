@@ -1,0 +1,9 @@
+{
+    "sv": {
+        "host": "localhost",
+        "port": 1505,
+        "user": "admin",
+        "pwd": "admin",
+        "vseName": "VSE"
+    }
+}

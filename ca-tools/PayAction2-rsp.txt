@@ -1,0 +1,26 @@
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+X-Powered-By: Servlet 2.4; JBoss-4.2.3.GA (build: SVNTag=JBoss_4_2_3_GA date=200807181439)/JBossWeb-2.0
+Set-Cookie: JSESSIONID=66BB9133CC2BCC81A8C1A52DEF1603CB; Path=/
+P3P: CP=CAO PSA OUR
+Content-Type: text/html;charset=UTF-8
+Content-Length: 527
+Date: Mon, 21 Jul 2014 03:38:09 GMT
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Please Wait...</title>
+</head>
+<body>
+<form id="defaultForm" action="/ddd/index.action?someNumber=999988887777666655554" method="post">
+</form>
+<script type="text/javascript">
+        document.getElementById("defaultForm").submit();
+</script>
+</body>
+</html>

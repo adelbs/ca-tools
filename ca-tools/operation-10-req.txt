@@ -1,0 +1,8 @@
+POST /operation10 HTTP/1.1
+X-Api-Key: 89ba4c3d-3373-40ad-8a46-aec33f944fae
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: LISA
+Host: devtest.ca.com
+
+{"dateAccepted":"2012-06-14T11:30:40-0700","languageCode":"en","termsKey":"f0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130df0a6f2aa-8e68-45ae-a875-84444ef1130d","termsType":"electronicDisclosureelectronicDisclosureelectronicDisclosureelectronicDisclosureelectronicDisclosureelectronicDisclosureelectronicDisclosureelectronicDisclosureelectronicDisclosureelectronicDisclosureelectronicDisclosureelectronicDisclosureelectronicDisclosure","termsVersion":1}
