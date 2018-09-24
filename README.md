@@ -19,8 +19,8 @@ Lib to integrate your Javascript code with CA Technologies tools
 
 ### Links (about the tools)
 
-- About the SV: [CA ServiceVirtualization](https://www.ca.com/us/products/ca-service-virtualization.html)
-- About the TDM: [CA Test Data Managet](https://www.ca.com/us/products/test-data-management.html)
+- About the SV: [CA Service Virtualization](https://www.ca.com/us/products/ca-service-virtualization.html)
+- About the TDM: [CA Test Data Manager](https://www.ca.com/us/products/test-data-management.html)
 - CodeSV (Java tool like this): [CA CodeSV](http://www.codesv.io/)
 
 
