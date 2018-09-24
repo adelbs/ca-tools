@@ -19,6 +19,29 @@ Lib to integrate your Javascript code with CA Technologies tools
 
 ### Usage
 
+#### SV Hello World
+
+```javascript
+    //The './ca-tools' is the path to the config file
+    const { sv } = require('ca-tools')('./ca-tools');
+
+    sv.run('SimpleService', '8001', [ { req: 'GET /hello', rsp: 'Hello World' } ]);
+```
+
+#### TDM Hello World
+
+```javascript
+    //The './ca-tools' is the path to the config file
+    const { tdm } = require('ca-tools')('./ca-tools');
+
+    const dp = tdm.dataPainter;
+
+    console.log(`Hello ${tdm.eval(dp.randLOV(dp.seedList.FirstName))}`);
+```
+
+
+### All features
+
 #### Config File (ca-tools-config.json)
 
 ```json
