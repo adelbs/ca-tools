@@ -13,6 +13,7 @@ Lib to integrate your Javascript code with CA Technologies tools
 - Generate Rest Virtual Services (smarter alternative to traditional mocks)
 - Generate Test Data (Data generated into databases, plain files or inside the Virtual Services)
 - Everything integrated with your unit tests
+- It is possible to evaluate TDM expressions
 - PS.: The TDM lib is under construction
 
 
@@ -30,7 +31,14 @@ Lib to integrate your Javascript code with CA Technologies tools
         "vseName": "VSE"
     },
     "tdm": {
-        //UNDER CONSTRUCTION
+        "host": "localhost",
+        "port": 8088,
+        "user": "administrator",
+        "pwd": "marmite",
+        "defaultProject": {
+            "projectId": 2365,
+            "versionId": 2366
+        }
     }
 }
 ```
@@ -39,7 +47,7 @@ Lib to integrate your Javascript code with CA Technologies tools
 
 ```javascript
     //The './ca-tools' is the path to the config file
-    const { sv } = require('ca-tools')('./ca-tools');
+    const { sv, tdm } = require('ca-tools')('./ca-tools');
 
     //Array with any data (objects, strings, numbers, etc.)
     let customers = [
@@ -48,6 +56,11 @@ Lib to integrate your Javascript code with CA Technologies tools
         { id: 3, name: 'Oliver' },
         { id: 4, name: 'Michael' }
     ];
+
+    //Or you can integrate it with TDM, using the evaluation method
+    const dp = tdm.dataPainter;
+    for (let i = 5; i < 100; i++)
+        customers.push({ id: i, name: tdm.eval(dp.randLOV(dp.seedList.FirstName)) });
 
     //Simple way - It will create and deploy a virtual service with these endpoints
     sv.run('SimpleService', '8001', [

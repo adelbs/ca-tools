@@ -1,0 +1,4 @@
+* SV - ignorar se o serviço já estiver criado (criar parametro)
+* SV - criar metodo para parar e startar serviço (ou mesmo metodo run sem parametros)
+* TDM - metodo run sem parametros - executa generator
+* TDM - metodo run com parametros - cria generator

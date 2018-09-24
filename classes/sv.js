@@ -8,13 +8,15 @@ class SV {
         this.helper = new SvHelper(configFolder);
     }
 
-    async run(svName, vsPort, rrPair = []) {
+    async run(svName, vsPort, rrPair = [{ req: { GET: '', POST: '', PUT: '', DELETE: '', body: '' }, rsp: { body: '' } }]) {
 
         let fileCount = 1;
         let cleanRRFiles = false;
 
         //Se vierem parametros de RR, cria os arquivos antes
         rrPair.forEach(rr => {
+            if (rr.req && rr.req.GET === '' && rr.req.POST === '' && rr.req.PUT === '' && rr.req.DELETE === '') return;
+
             let fileContent = '';
 
             //Arquivos req

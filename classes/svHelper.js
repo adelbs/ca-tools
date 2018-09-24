@@ -1,66 +1,17 @@
+const GenericHelper = require('./genericHelper');
+
 const fs = require('fs');
 const rp = require('request-promise');
 const token = require('basic-auth-token');
 
-class SVHelper {
-
-    constructor(configFolder) {
-        if (configFolder) {
-            this.configFolder = configFolder;
-            const config = JSON.parse(fs.readFileSync(`${configFolder}/ca-tools-config.json`, 'utf8'));
-            this.config = config.sv;
-        }
-    }
+class SVHelper extends GenericHelper {
 
     buildRequest(method, uri, body = null, formData = null) {
-        let request = {
-            method: method,
-            uri: `http://${this.config.host}:${this.config.port}/lisa-virtualize-invoke/api/v2/vses${uri}`,
-            json: true
-        };
+        let request = super.buildRequest(method, 
+            `http://${this.config.sv.host}:${this.config.sv.port}/lisa-virtualize-invoke/api/v2/vses${uri}`, body, formData);
 
-        if (body) request.body = body;
-
-        if (formData) {
-            request.headers = {
-                'Content-Type': 'multipart/form-data',
-                'Cache-Control': 'no-cache'
-            };
-            request.formData = formData;
-        }
-        else {
-            request.headers = {
-                'Cache-Control': 'no-cache'
-            };
-        }
-
-        request.headers.Authorization = `Basic ${token('admin', 'admin')}`;
-
+        request.headers.Authorization = `Basic ${token(this.config.sv.user, this.config.sv.pwd)}`;
         return request;
-    }
-
-    buildReqFile(fileName) {
-        return {
-            value: fs.createReadStream(`${this.configFolder}/${fileName}`),
-            options: {
-                fileName: fileName,
-                contentType: 'text/plain'
-            }
-        };
-    }
-
-    async getResponseObjID(options) {
-        let id = '';
-
-        try {
-            const obj = await rp(options);
-            id = obj.id;
-        }
-        catch (error) {
-            console.error(`It was not possible to get the response ID from request.\n${options}`, error);
-        }
-
-        return id;
     }
 
     async getVseId() {
@@ -72,7 +23,7 @@ class SVHelper {
             const vses = vsesRsp._embedded.vses;
 
             for (let i = 0; i < vses.length; i++) {
-                if (vses[i].name === this.config.vseName) {
+                if (vses[i].name === this.config.sv.vseName) {
                     vseId = vses[i]._links.self.href;
                     vseId = vseId.replace(request.uri, '');
                 }
@@ -221,15 +172,15 @@ class SVHelper {
                 file: this.buildReqFile(`${serviceName}.mar`),
             });
 
-        request.uri = `http://${this.config.host}:${this.config.port}/api/Dcm/VSEs/${this.config.vseName}/actions/deployMar`,
+        request.uri = `http://${this.config.sv.host}:${this.config.sv.port}/api/Dcm/VSEs/${this.config.sv.vseName}/actions/deployMar`,
         request.headers.Accept = '*/*';
 
         await rp(request);
     }
 
     async deleteVS(serviceName) {
-        const request = this.buildRequest('DELETE', '/', null);
-        request.uri = `http://${this.config.host}:${this.config.port}/api/Dcm/VSEs/${this.config.vseName}/${serviceName}`,
+        const request = this.buildRequest('DELETE', '/');
+        request.uri = `http://${this.config.sv.host}:${this.config.sv.port}/api/Dcm/VSEs/${this.config.sv.vseName}/${serviceName}`,
         request.headers.Accept = '*/*';
 
         await rp(request).catch(err => {});
