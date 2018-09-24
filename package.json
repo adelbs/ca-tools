@@ -1,6 +1,6 @@
 {
     "name": "ca-tools",
-    "version": "0.2.0",
+    "version": "0.2.2",
     "description": "Development lib to integrate your code with CA Technologies tools.",
     "main": "index.js",
     "scripts": {
