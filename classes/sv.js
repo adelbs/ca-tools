@@ -8,7 +8,20 @@ class SV {
         this.helper = new SvHelper(configFolder);
     }
 
-    async run(svName, vsPort, rrPair = [{ req: { GET: '', POST: '', PUT: '', DELETE: '', body: '' }, rsp: { body: '' } }]) {
+    async run(svName, vsPort, rrPair = [{ req: { GET: '', POST: '', PUT: '', DELETE: '', body: '' }, rsp: { body: '' } }], ignodeCreated = true) {
+
+        if (ignodeCreated) {
+            let serviceCreated = false;
+            
+            const createdServicesTxt = fs.readFileSync(`${this.configFolder}/createdServices.txt`);
+            const createdServices = createdServicesTxt.toString().split('\n');
+            createdServices.forEach(createdSVName => {
+                serviceCreated = serviceCreated || (createdSVName === svName);
+            });
+
+            if (serviceCreated) return;
+            fs.appendFileSync(`${this.configFolder}/createdServices.txt`, svName + '\n');
+        }
 
         let fileCount = 1;
         let cleanRRFiles = false;
